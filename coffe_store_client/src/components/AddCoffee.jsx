@@ -2,6 +2,20 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const AddCoffee = () => {
+  const HandleAddCoffee = event => {
+
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const chef = form.chef.value;
+    const supplier = form.supplier.value;
+    const taste = form.taste.value;
+    const category = form.category.value;
+    const details = form.name.value;
+    const photo = form.photo.value;
+    const newCoffee = { name,chef,supplier,taste,category,details,photo };
+    console.log(newCoffee);
+  }
   return (
     
     <div className=' bg-[#F4F3F0] p-24 '>
@@ -27,14 +41,14 @@ const AddCoffee = () => {
         </div>
 
         {/* Form Grid */}
-        <form>
+        <form onSubmit={HandleAddCoffee}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             {/* Name Input */}
             <div className="form-control w-full">
               <label className="label">
                 <span className="label-text font-semibold text-lg">Name</span>
               </label>
-              <input type="text" Name="name" placeholder="Enter coffee name" className="input input-bordered w-full bg-white" />
+              <input type="text" name="name" placeholder="Enter coffee name" className="input input-bordered w-full bg-white" />
             </div>
 
             {/* Chef Input */}
@@ -42,7 +56,7 @@ const AddCoffee = () => {
               <label className="label">
                 <span className="label-text font-semibold text-lg">Chef</span>
               </label>
-              <input type="text" Name="chef" placeholder="Enter coffee chef" className="input input-bordered w-full bg-white" />
+              <input type="text" name="chef" placeholder="Enter coffee chef" className="input input-bordered w-full bg-white" />
             </div>
 
             {/* Supplier Input */}
@@ -50,7 +64,7 @@ const AddCoffee = () => {
               <label className="label">
                 <span className="label-text font-semibold text-lg">Supplier</span>
               </label>
-              <input type="text" Name="supplier" placeholder="Enter coffee supplier" className="input input-bordered w-full bg-white" />
+              <input type="text" name="supplier" placeholder="Enter coffee supplier" className="input input-bordered w-full bg-white" />
             </div>
 
             {/* Taste Input */}
@@ -58,7 +72,7 @@ const AddCoffee = () => {
               <label className="label">
                 <span className="label-text font-semibold text-lg">Taste</span>
               </label>
-              <input type="text" Name="taste" placeholder="Enter coffee taste" className="input input-bordered w-full bg-white" />
+              <input type="text" name="taste" placeholder="Enter coffee taste" className="input input-bordered w-full bg-white" />
             </div>
 
             {/* Category Input */}
@@ -66,7 +80,7 @@ const AddCoffee = () => {
               <label className="label">
                 <span className="label-text font-semibold text-lg">Category</span>
               </label>
-              <input type="text" Name="category" placeholder="Enter coffee category" className="input input-bordered w-full bg-white" />
+              <input type="text" name="category" placeholder="Enter coffee category" className="input input-bordered w-full bg-white" />
             </div>
 
             {/* Details Input */}
@@ -74,7 +88,7 @@ const AddCoffee = () => {
               <label className="label">
                 <span className="label-text font-semibold text-lg">Details</span>
               </label>
-              <input type="text" Name="details" placeholder="Enter coffee details" className="input input-bordered w-full bg-white" />
+              <input type="text" name="details" placeholder="Enter coffee details" className="input input-bordered w-full bg-white" />
             </div>
           </div>
 
@@ -83,12 +97,12 @@ const AddCoffee = () => {
             <label className="label">
               <span className="label-text font-semibold text-lg">Photo</span>
             </label>
-            <input type="text" Name="photo" placeholder="Enter photo URL" className="input input-bordered w-full bg-white" />
+            <input type="text" name="photo" placeholder="Enter photo URL" className="input input-bordered w-full bg-white" />
           </div>
 
           {/* Submit Button */}
           <button 
-            type="button" 
+            type="submit" 
             className="btn btn-block bg-[#D2B48C] hover:bg-[#b89a74] border-2 border-[#331A15] text-[#331A15] text-xl capitalize"
           >
             Add Coffee
